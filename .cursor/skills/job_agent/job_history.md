@@ -18,8 +18,9 @@ Use labeled links: (LinkedIn: url) (Company: url) (Other: url)
 
 ## Saved Jobs
 
-- **Catawiki** - Data Scientist (Machine Learning) [2026-01-27] {interested} (https://relocate.me/the-netherlands/amsterdam/catawiki/data-scientist-machine-learning-8537) (Company: https://catawiki.careers/vacancies/data-scientist-machine-learning-netherlands-1427963-2338337)
-- **NucleusBi** - A.I. Data Scientist [2026-01-26] {interested} (https://nucleusbi.com/en/vacancies/a-i-data-scientist/)
+- **Catawiki** - Data Scientist (Machine Learning) [2026-01-27] {applied} (https://relocate.me/the-netherlands/amsterdam/catawiki/data-scientist-machine-learning-8537) (Company: https://catawiki.careers/vacancies/data-scientist-machine-learning-netherlands-1427963-2338337) 
+- **ING Bank** - Senior Data Scientist (Retail Banking Analytics) [2026-01-27] {applied} (https://careers.ing.com/it/lavoro/amsterdam/senior-data-scientist/3121/34154520128) (https://careers.ing.com/en/job/amsterdam/senior-data-scientist/3121/34154520128)
+
 
 <!-- Quick add examples:
 
