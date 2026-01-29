@@ -12,13 +12,13 @@ Before performing any search or verification, read the values in the ## CONFIGUR
 - **INITIAL_RECENCY_WEEKS**: 2 weeks
 - **FALLBACK_RECENCY_WEEKS**: 4 weeks
 - **PRIORITIZE_COMPANY_PAGES**: true  # Search company career pages before aggregators
-- **MIN_COMPANY_PAGE_RESULTS**: 5     # Search aggregators only if company pages return < this number
+- **MIN_COMPANY_PAGE_RESULTS**: 10     # Search aggregators only if company pages return < this number
 
 ## SEARCH WORKFLOW
 
 1. **Step 1 (Primary)**: Search Target Company Career Pages within **INITIAL_RECENCY_WEEKS**
-2. **Step 2 (Secondary)**: If Step 1 returns < **MIN_COMPANY_PAGE_RESULTS**, also search General Job Search Sites within **INITIAL_RECENCY_WEEKS**
-3. **Step 3 (Fallback)**: If Steps 1+2 return 0 results, broaden to **FALLBACK_RECENCY_WEEKS** for both source types
+2. **Step 2 (Secondary)**: If Step 1 returns < **MIN_COMPANY_PAGE_RESULTS**, also search Example Job Search Sites within **INITIAL_RECENCY_WEEKS**
+3. **Step 3 (Fallback)**: If Steps 1+2 return < **MIN_COMPANY_PAGE_RESULTS** results, broaden to **FALLBACK_RECENCY_WEEKS** for both source types
 4. **Step 4 (Final)**: Apply all quality checks and "Output Standards" to results
 
 
@@ -40,7 +40,7 @@ Before performing any search or verification, read the values in the ## CONFIGUR
   - Direct job posting link (if accessible)
   - **Source type and URL:**
     - **[Company Career Page]** if found via Target Company Career Pages (e.g., "ING Careers: https://careers.ing.com/...")
-    - **[Job Aggregator]** if found via General Job Search Sites (e.g., "LinkedIn: https://linkedin.com/...")
+    - **[Job Aggregator]** if found via Example Job Search Sites (e.g., "LinkedIn: https://linkedin.com/...")
   - Posting date (when the job was posted/updated)
   - **Priority indicator:** Mark jobs from Target Company Career Pages with ⭐ (more reliable)
 - CRITICAL: Use the recency window currently active in the **SEARCH WORKFLOW**. (verify posting date)
@@ -57,13 +57,16 @@ Before performing any search or verification, read the values in the ## CONFIGUR
   - Blacklisted Job Titles: Exclude all postings with this specific job title at this company (e.g., "Uber - Staff ML Engineer" blocks ALL Staff ML Engineer roles at Uber)
   - Blacklisted Job Postings (URLs): Exclude only specific posting URLs (e.g., expired links). Same job title with new URL is allowed
 - Do NOT automatically save results - user will manually add jobs to job_history.md if interested
-- For testing, return only the top 5 most recent results
+- For testing, return only the top **MIN_COMPANY_PAGE_RESULTS** most recent results
 
 ## Target Company Career Pages (Primary Sources - Search First)
 
 - ING: https://careers.ing.com/en
+- Schiphol: https://www.schiphol.nl/en/careers
 
-## General Job Search Sites (Secondary Sources - Use If Needed)
+## Example Job Search Sites (Secondary Sources - Non-exhaustive; Use If Needed)
+
+This list is illustrative; you may use other reputable sources.
 
 - https://www.linkedin.com/
 - https://nl.indeed.com/

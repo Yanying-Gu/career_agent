@@ -20,6 +20,10 @@ Use labeled links: (LinkedIn: url) (Company: url) (Other: url)
 
 - **Catawiki** - Data Scientist (Machine Learning) [2026-01-27] {applied} (https://relocate.me/the-netherlands/amsterdam/catawiki/data-scientist-machine-learning-8537) (Company: https://catawiki.careers/vacancies/data-scientist-machine-learning-netherlands-1427963-2338337) 
 - **ING Bank** - Senior Data Scientist (Retail Banking Analytics) [2026-01-27] {applied} (https://careers.ing.com/it/lavoro/amsterdam/senior-data-scientist/3121/34154520128) (https://careers.ing.com/en/job/amsterdam/senior-data-scientist/3121/34154520128)
+- **Manychat** - Machine Learning Engineer (AI Core Team) [2026-01-29] {interested} (Company: https://boards.greenhouse.io/manychat/jobs/8105958002?gh_jid=8105958002) (Note: similar position: Manychat - Senior Machine Learning Scientist)
+- **Manychat** - Senior Machine Learning Scientist [2026-01-29] {applied} (Company: https://boards.greenhouse.io/manychat/jobs/8384268002?gh_jid=8384268002)
+- **Bloom & Wild Group (bloomon)** - Machine Learning Engineer [2026-01-29] {applied} (Company: https://jobs.lever.co/bloomon/e10af05b-b604-41e8-adcf-efe55c7e935d)
+- **Adyen** - Machine Learning Scientist [2026-01-26] {interested} (LinkedIn: https://www.linkedin.com/jobs/view/4134882012/) (Company: https://careers.adyen.com/vacancies)
 
 
 <!-- Quick add examples:
