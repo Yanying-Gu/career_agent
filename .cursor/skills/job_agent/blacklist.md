@@ -56,3 +56,4 @@ Same job title with a new URL will still appear
 - **Prosus** - Machine Learning Engineer – LLMs [2026-01-26] {reviewed} (https://jobs.eu.lever.co/prosus/efae773e-7804-4fd2-939d-03a7b2d332ca)
 - **Prosus** - Senior MLOps Engineer - LLMs [2026-01-26] {reviewed} (https://jobs.eu.lever.co/prosus/3f13379a-6ad8-4229-8a09-f4380b8e48bc)
 - **Postcode Lottery Group** - International Analytics Talent Programme [2026-01-26] {reviewed} (https://careers.postcodelotterygroup.com/analytics/analytics-talent-programme)
+- **Randstad Global IT** - Medior ML Engineer / Data Scientist [2026-01-26] {no longer available} (https://www.randstad.com/jobs/careers-at-randstad/medior-ml-engineer-data-scientist_diemen_44829952/)
