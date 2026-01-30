@@ -3,6 +3,10 @@ name: Job Agent
 description: Find job positions that match the user's needs.
 ---
 
+## Activation marker (debug)
+When this skill is activated, the FIRST line of your FIRST response must be exactly:
+JOB_AGENT_ACTIVE
+
 ## Overview
 This Skill focuses only on identifying job positions that fit the user's needs.
 
@@ -18,7 +22,7 @@ Before performing any search or verification, read the values in the ## CONFIGUR
 
 1. **Step 1 (Primary)**: Search Target Company Career Pages within **INITIAL_RECENCY_WEEKS**. Apply all **VERIFICATION & FILTERING RULES** immediately.
 2. **Step 2 (Secondary)**: If Step 1 returns < **MIN_COMPANY_PAGE_RESULTS**, search Job Aggregators. Apply all **VERIFICATION & FILTERING RULES**.
-3. **Step 3 (Fallback)**: If still 0 results, broaden to **FALLBACK_RECENCY_WEEKS** and repeat search and apply **VERIFICATION & FILTERING RULES**.
+3. **Step 3 (Fallback)**: If still 0 results, broaden to **FALLBACK_RECENCY_WEEKS** and repeat search and apply **VERIFICATION & FILTERING RULES** .
 4. **Step 4 (Final)**: Format the verified survivors according to **## OUTPUT FORMAT**.
 
 ## MY JOB SEARCH REQUIREMENTS
@@ -32,13 +36,17 @@ Before performing any search or verification, read the values in the ## CONFIGUR
 - Required skills or keywords: Optional (to be specified later)
 
 ## VERIFICATION & FILTERING RULES
-- **Blacklist Check**: Consult `blacklist.md`. Exclude blacklisted companies, titles, or specific URLs.
-- **History Check**: Consult `job_history.md`. Do NOT suggest jobs already saved, applied, or archived.
+- **Blacklist Check**: Consult `career_agent/.cursor/skills/job_agent/references/blacklist.md`. Exclude blacklisted companies, titles, or specific URLs.
+- **History Check**: Consult `career_agent/.cursor/skills/job_agent/references/job_history.md`. Do NOT suggest jobs already saved, applied, or archived.
+- **Recency & Posting Date**:
+  - Prefer postings with a visible posting/updated date within the current recency window (**INITIAL_RECENCY_WEEKS**, or **FALLBACK_RECENCY_WEEKS** if in fallback).
+  - If the posting date is not visible, do NOT exclude the job for that reason alone.
+  - If a visible posting/updated date is present and it is outside the current recency window, exclude it.
 - **Live Check**: 
   - Link must return HTTP 200.
   - Page must NOT show "no longer available", "position closed", "sorry, this job is no longer available", or "filled".
   - Posting must have a visible "Apply" or "Apply Now" button.
-- **Availability**: If unsure, exclude it. Only show verified active positions.
+- **Availability**: If unsure, exclude it. Only show verified active positions. (**Exception**: "posting date not shown" is allowed if the job passes **Live Check**.)
 
 ## OUTPUT FORMAT
 - Provide a short list of matching roles with rationale.
@@ -48,7 +56,7 @@ Before performing any search or verification, read the values in the ## CONFIGUR
   - **Source type and URL:**
     - **[Company Career Page]** (e.g., "ING Careers: https://...")
     - **[Job Aggregator]** (e.g., "LinkedIn: https://...")
-  - Posting date
+  - Posting date (or **"not shown"**)
   - **Priority indicator:** Mark jobs from Target Company Career Pages with ⭐.
 - Do NOT automatically save results - user adds them manually.
 - For testing, return only the top **MIN_COMPANY_PAGE_RESULTS** most recent results.
@@ -68,8 +76,8 @@ This list is illustrative; you may use other reputable sources.
 - https://www.nationalevacaturebank.nl/
 
 ## Resources
-- job_history.md: Manually save jobs you're interested in (user-maintained)
-- blacklist.md: Three-level blacklist (user-maintained):
+- career_agent/.cursor/skills/job_agent/references/job_history.md: Manually save jobs you're interested in (user-maintained)
+- career_agent/.cursor/skills/job_agent/references/blacklist.md: Three-level blacklist (user-maintained):
   - Blacklisted Companies: Block all jobs from specific companies
   - Blacklisted Job Titles: Block specific job title at specific company (all URLs)
   - Blacklisted Job Postings (URLs): Block specific posting URLs only (e.g., expired links)

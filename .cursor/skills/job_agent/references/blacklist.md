@@ -24,6 +24,7 @@ Same job title with a new URL will still appear
 
 - **Booking.com**
 - **Picnic** (1.5h commute by public transport)
+- **Rabobank** (Utrecht ~55km, outside 50km radius)
 
 ---
 
@@ -57,3 +58,5 @@ Same job title with a new URL will still appear
 - **Prosus** - Senior MLOps Engineer - LLMs [2026-01-26] {reviewed} (https://jobs.eu.lever.co/prosus/3f13379a-6ad8-4229-8a09-f4380b8e48bc)
 - **Postcode Lottery Group** - International Analytics Talent Programme [2026-01-26] {reviewed} (https://careers.postcodelotterygroup.com/analytics/analytics-talent-programme)
 - **Randstad Global IT** - Medior ML Engineer / Data Scientist [2026-01-26] {no longer available} (https://www.randstad.com/jobs/careers-at-randstad/medior-ml-engineer-data-scientist_diemen_44829952/)
+- **Flow Traders** - Senior Research Engineer (Product Development) [2026-01-30] {expired} (https://flowtraders.com/careers/job-description/6066737)
+
