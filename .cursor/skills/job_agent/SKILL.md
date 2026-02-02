@@ -25,10 +25,20 @@ Before performing any search or verification, read the values in the ## CONFIGUR
 3. **Step 3 (Fallback)**: If still 0 results, broaden to **FALLBACK_RECENCY_WEEKS** and repeat search and apply **VERIFICATION & FILTERING RULES** .
 4. **Step 4 (Final)**: Format the verified survivors according to **## OUTPUT FORMAT**.
 
-## MY JOB SEARCH REQUIREMENTS
-- Target role title(s): Data Scientist, Machine Learning Engineer, AI Engineer
+## MY JOB SEARCH REQUIREMENTS/RULES
+- Target role title(s) (title filter; apply strictly):
+  - Include only if title contains one of:
+    - “Data Scientist” OR “Data Science” OR token/word "DS"
+    - “Machine Learning” OR token/word “ML”
+    - token/word “AI”
+  - Exclude if title contains:
+    - “Analyst” (Data Analyst/BI Analyst/etc.)
+    - “Data Engineer”
+  - If unsure → ask me
 - Company size: Medium to enterprise-sized companies (exclude startups and consulting firms)
-- Location and work mode: Alkmaar, within 50 km radius STRICT (onsite, hybrid, remote)
+- Location and work mode: Alkmaar (within 50 km radius) STRICT (onsite, hybrid, remote)
+  - Include if city is within 50 km of Alkmaar (Amsterdam/Haarlem OK, etc.)
+  - OR include if explicitly Remote and Netherlands-based (even if no city)
   - Amsterdam: ~40 km ✓
   - Haarlem: ~20 km ✓
   - Eindhoven: ~120 km ✗ (too far)
