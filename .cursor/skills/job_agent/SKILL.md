@@ -21,7 +21,7 @@ Before performing any search or verification, read the values in the ## CONFIGUR
 ## SEARCH WORKFLOW
 
 1. **Step 1 (Primary)**: Search Target Company Career Pages within **INITIAL_RECENCY_WEEKS**. Apply all **VERIFICATION & FILTERING RULES** immediately.
-2. **Step 2 (Secondary)**: If Step 1 returns < **MIN_COMPANY_PAGE_RESULTS**, search Job Aggregators. Apply all **VERIFICATION & FILTERING RULES**.
+2. **Step 2 (Secondary)**: If Step 1 returns < **MIN_COMPANY_PAGE_RESULTS**, search ALL sites listed in **## Job Aggregators** below. Apply all **VERIFICATION & FILTERING RULES**.
 3. **Step 3 (Fallback)**: If still 0 results, broaden to **FALLBACK_RECENCY_WEEKS** and repeat search and apply **VERIFICATION & FILTERING RULES** .
 4. **Step 4 (Final)**: Format the verified survivors according to **## OUTPUT FORMAT**.
 
@@ -53,10 +53,18 @@ Before performing any search or verification, read the values in the ## CONFIGUR
   - If the posting date is not visible, do NOT exclude the job for that reason alone.
   - If a visible posting/updated date is present and it is outside the current recency window, exclude it.
 - **Live Check**: 
-  - Link must return HTTP 200.
-  - Page must NOT show "no longer available", "position closed", "sorry, this job is no longer available", or "filled".
-  - Posting must have a visible "Apply" or "Apply Now" button.
-- **Availability**: If unsure, exclude it. Only show verified active positions. (**Exception**: "posting date not shown" is allowed if the job passes **Live Check**.)
+  - **HTTP check**: Verify the **job posting page URL** returns HTTP 200 (no 404/410/3xx loops).
+  - **Closed/expired text check**: Exclude if the page shows any “closed/expired” messaging, including (non-exhaustive):
+    - "no longer available", "position closed", "sorry, this job is no longer available", "filled"
+    - "This job has expired", "We couldn't find this job", "Sorry, ..."
+    - "vacature is verlopen", "niet meer beschikbaar", "deze vacature is gesloten"
+  - **Apply flow check (required)**:
+    - The posting must have a visible "Apply" / "Apply Now" button **AND**
+    - The **apply target URL** (if separate, e.g. `/apply` on Lever/Workday/Greenhouse) must also return HTTP 200 and show an actual application form (e.g. "Submit your application"), not an error page.
+- **Cookie/JS gated pages (special case)**:
+  - If the posting/apply flow cannot be verified due to cookie banners, JS-rendering, bot protection, or other gating, do NOT exclude automatically.
+  - Mark the result as **Unverified (cookie/JS gated)** in the output and include a short note on what could not be verified.
+- **Availability**: If unsure, exclude it. Only show verified active positions. (**Exceptions**: "posting date not shown" is allowed if the job passes **Live Check**; cookie/JS gated pages may be listed as **Unverified (cookie/JS gated)**.)
 
 ## OUTPUT FORMAT
 - Provide a short list of matching roles with rationale.
@@ -67,6 +75,7 @@ Before performing any search or verification, read the values in the ## CONFIGUR
     - **[Company Career Page]** (e.g., "ING Careers: https://...")
     - **[Job Aggregator]** (e.g., "LinkedIn: https://...")
   - Posting date (or **"not shown"**)
+  - Verification status: **Verified** OR **Unverified (cookie/JS gated)** (with a one-line reason)
   - **Priority indicator:** Mark jobs from Target Company Career Pages with ⭐.
 - Do NOT automatically save results - user adds them manually.
 - For testing, return only the top **MIN_COMPANY_PAGE_RESULTS** most recent results.
@@ -76,14 +85,14 @@ Before performing any search or verification, read the values in the ## CONFIGUR
 - ING: https://careers.ing.com/en
 - Schiphol: https://www.schiphol.nl/en/careers
 
-## Example Job Search Sites (Secondary Sources - Non-exhaustive; Use If Needed)
+## Job Aggregators (Secondary Sources)
 
-This list is illustrative; you may use other reputable sources.
+When Step 2 triggers, search ALL of the following sites. Additional reputable sources are permitted.
 
-- https://www.linkedin.com/
-- https://nl.indeed.com/
-- https://www.werkzoeken.nl/vacatures/
-- https://www.nationalevacaturebank.nl/
+- LinkedIn: https://www.linkedin.com/jobs/
+- Indeed NL: https://nl.indeed.com/
+- Werkzoeken: https://www.werkzoeken.nl/vacatures/
+- Nationale Vacaturebank: https://www.nationalevacaturebank.nl/
 
 ## Resources
 - career_agent/.cursor/skills/job_agent/references/job_history.md: Manually save jobs you're interested in (user-maintained)
