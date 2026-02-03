@@ -1,0 +1,8 @@
+.cursor/skills/company-researcher/private/
+
+# Job agent local state (do not commit)
+.cursor/skills/job_agent/references/job_history.md
+.cursor/skills/job_agent/references/blacklist.md
+
+# Local Q/A data (do not commit)
+data/q_a/

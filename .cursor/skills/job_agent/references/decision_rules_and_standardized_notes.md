@@ -32,4 +32,5 @@ Use the existing set:
 - `domain_mismatch: trading`
 - `location_out_of_scope`
 - `comp/contract`
+- `same_company_applied: already applied to [other role]` — use when you find another role at a company where you already have an active application; archive until you hear back from the first application
 

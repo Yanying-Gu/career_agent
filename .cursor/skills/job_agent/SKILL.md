@@ -30,7 +30,7 @@ Before performing any search or verification, read the values in the ## CONFIGUR
   - Include only if title contains one of:
     - “Data Scientist” OR “Data Science” OR token/word "DS"
     - “Machine Learning” OR token/word “ML”
-    - token/word “AI”
+    - "AI engineer" OR token/word “AI”
   - Exclude if title contains:
     - “Analyst” (Data Analyst/BI Analyst/etc.)
     - “Data Engineer”
@@ -84,6 +84,7 @@ Before performing any search or verification, read the values in the ## CONFIGUR
 
 - ING: https://careers.ing.com/en
 - Schiphol: https://www.schiphol.nl/en/careers
+- Albert Heijn: https://werk.ah.nl/vacatures
 
 ## Job Aggregators (Secondary Sources)
 
