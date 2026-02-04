@@ -21,7 +21,7 @@ Before performing any search or verification, read the values in the ## CONFIGUR
 ## SEARCH WORKFLOW
 
 1. **Step 1 (Primary)**: Search Target Company Career Pages within **INITIAL_RECENCY_WEEKS**. Apply all **VERIFICATION & FILTERING RULES** immediately.
-2. **Step 2 (Secondary)**: If Step 1 returns < **MIN_COMPANY_PAGE_RESULTS**, search ALL sites listed in **## Job Aggregators** below. Apply all **VERIFICATION & FILTERING RULES**.
+2. **Step 2 (Secondary)**: If Step 1 returns < **MIN_COMPANY_PAGE_RESULTS**, search **ALL** sites listed in **## Job Aggregators** below. **CRITICAL: Do NOT skip any aggregator - search all sites.** Apply all **VERIFICATION & FILTERING RULES**.
 3. **Step 3 (Fallback)**: If still 0 results, broaden to **FALLBACK_RECENCY_WEEKS** and repeat search and apply **VERIFICATION & FILTERING RULES** .
 4. **Step 4 (Final)**: Format the verified survivors according to **## OUTPUT FORMAT**.
 
@@ -85,6 +85,7 @@ Before performing any search or verification, read the values in the ## CONFIGUR
 - ING: https://careers.ing.com/en
 - Schiphol: https://www.schiphol.nl/en/careers
 - Albert Heijn: https://werk.ah.nl/vacatures
+- ABN AMRO: https://www.werkenbijabnamro.nl/vacature
 
 ## Job Aggregators (Secondary Sources)
 
