@@ -1,14 +1,31 @@
 ---
-name: company-researcher
+name: company-check
 description: Research and summarize company information for job applications. Use when the user asks to check a company, analyze a potential employer, or after job listings are provided.
 ---
 
-# Company Researcher
+# Company Check
 
 ## Overview
 This skill researches companies to help the user make informed decisions about job applications. It focuses on stability, culture, and recent news.
 
-## Information to Gather
+## Workflow
+
+### Step 1: Check Blacklist
+Before researching, read `career_agent/.cursor/skills/job_agent/references/blacklist.md` and search for the company name.
+
+**If company is found in blacklist:**
+- Display the company name and the reason from the blacklist
+- Output format:
+  ```
+  ## [Company Name] - Already Blacklisted
+  **Reason:** [reason from blacklist]
+  ```
+- Stop here (no further research needed)
+
+**If company is NOT found in blacklist:**
+- Proceed to Step 2
+
+### Step 2: Gather Information
 For each company, use `web_search` to find:
 
 1.  **Core Business**: What do they do? (Industry, Product/Service)
